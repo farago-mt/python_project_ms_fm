@@ -1,0 +1,9 @@
+Aknakereső játék **
+Készíts aknakereső játékot. A pálya téglalap alakú, cellákból álló tábla. Egy cellára rálépve
+megtudhatjuk, hogy az adott cellán van-e akna (ebben az esetben felrobbanunk – vége a
+játéknak), illetve, hogy hány szomszédos cellán van. Legyen lehetőség:
+ a tábla méreteinek a meghatározására,
+ a táblán lévő aknák számának megadására,
+ a játékidő mérésére (esetleg limitálására),
+ a játékos által aknának gondolt cellák megjelölésére,
+ aknamentes környék automatikus felderítésére.
