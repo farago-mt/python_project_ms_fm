@@ -59,11 +59,13 @@ class Minesweeper:
         cell = self.cells[row][column]
         # print(cell)
         #TODO: reveal cell if they are not mines or flagged - done
-        if not cell.is_mine and not cell.is_flagged:
+        if not cell.is_mine and not cell.is_flagged and cell.neighbor_mine_counter != 0:
             self.reveal(cell)
         #TODO: reveal zero-field
+        if cell.neighbor_mine_counter == 0:
+            self.reveal_zero_field(row, column)
         #TODO: reveal mine and game over - half-done
-        if cell.is_mine:
+        if cell.is_mine and not cell.is_flagged:
             self.show_mines(cell)
 
     def reveal(self, cell: Cell):
@@ -80,8 +82,16 @@ class Minesweeper:
             checked_cell.button.config(text="*")
 
     #TODO: implement flood fill algorithm
-    def reveal_zero_field(self):
-        pass
+    def reveal_zero_field(self, row, col):
+        if row < 0 or row >= self.rows or col<0 or col >= self.cols or self.cells[row][col].is_revealed or self.cells[row][col].neighbor_mine_counter != 0:
+            return
+        else:
+            cell = self.cells[row][col]
+            self.reveal(cell)
+            self.reveal_zero_field(row + 1, col)
+            self.reveal_zero_field(row - 1, col)
+            self.reveal_zero_field(row, col + 1)
+            self.reveal_zero_field(row, col - 1)
 
     def flag(self, event):
         widget = event.widget
