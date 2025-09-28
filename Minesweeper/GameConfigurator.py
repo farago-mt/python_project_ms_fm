@@ -1,12 +1,9 @@
 from tkinter import simpledialog
+
 class GameConfigurator:
     def __init__(self, parent):
         self.parent = parent
         self.rows, self.cols = self.ask_game_area()
-        # self.cols = simpledialog.askinteger("Minesweeper", "Enter cols", minvalue=5, maxvalue=25)
-        # self.rows = 10
-        # self.cols= 10
-        # self.ask_game_area()
         self.mines = self.ask_mine_count()
 
     def ask_game_area(self):
@@ -26,6 +23,7 @@ class GameConfigurator:
             else:
                 dimensions.append(default_dimensions[default_dimension][0])
         return dimensions[0], dimensions[1]
+
     def ask_mine_count(self):
         maxvalue = self.rows * self.cols // 4
         mine_count = simpledialog.askinteger("Minesweeper",
@@ -36,6 +34,7 @@ class GameConfigurator:
             return mine_count
         else:
             return maxvalue
+
     #TODO: timer here
 
 

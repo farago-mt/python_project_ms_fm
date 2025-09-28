@@ -1,7 +1,6 @@
 import os
 import sys
 import tkinter
-
 from Cell import Cell
 from tkinter import *
 from tkinter import messagebox
@@ -77,13 +76,14 @@ class Minesweeper:
         self.check_win()
 
     def reveal(self, cell: Cell):
+        colors = {1: "blue", 2: "green", 3: "orange", 4: "red", 5: "purple", 6: "pink", 7: "yellow", 8: "cyan", 9: "magenta"}
         if 0 < cell.neighbor_mine_counter:
-            cell.button.config(text=str(cell.neighbor_mine_counter),fg="blue")
+            cell.button.config(text=str(cell.neighbor_mine_counter),fg=colors[cell.neighbor_mine_counter])
         else:
             cell.button.config(text=str(cell.neighbor_mine_counter), fg="lightgrey")
         cell.is_revealed = True
         # print(f'Mines around: {cell.neighbor_mine_counter}, is_revealed: {cell.is_revealed}')
-    #TODO: end game when mine is clicked
+
     def show_mines(self, cell: Cell):
         # cell.button.config(text="*", bg="red")
         for ml in self.mine_locations:
