@@ -1,5 +1,5 @@
 class Cell:
-    def __init__(self, button):
+    def __init__(self, button: object):
         self.button = button
         self.is_mine = False
         self.is_revealed = False

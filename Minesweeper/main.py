@@ -8,13 +8,10 @@ def update_title(elapsed_time=0):
 
 root = Tk()
 root.title("Minesweeper")
-# TODO: organize this function to GameConfigurator?
 update_title()
 root.resizable(False, False)
 GameConfigurator = GameConfigurator(root)
-print(f'GameConfigurator.rows: {GameConfigurator.rows}, GameConfigurator.cols: {GameConfigurator.cols}, GameConfigurator.mines: {GameConfigurator.mines}')
 Minesweeper(root, GameConfigurator.rows, GameConfigurator.cols, GameConfigurator.mines)
-
 root.mainloop()
 
 

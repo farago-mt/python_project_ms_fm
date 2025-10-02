@@ -1,7 +1,7 @@
 from tkinter import simpledialog
 
 class GameConfigurator:
-    def __init__(self, parent):
+    def __init__(self, parent: object):
         self.parent = parent
         self.rows, self.cols = self.ask_game_area()
         self.mines = self.ask_mine_count()
@@ -17,7 +17,6 @@ class GameConfigurator:
                 minvalue=default_dimensions[default_dimension][1],
                 maxvalue=default_dimensions[default_dimension][2]
             )
-            print(f'type of {config}: {type(config)}')
             if type(config) == int:
                 dimensions.append(config)
             else:
@@ -34,7 +33,3 @@ class GameConfigurator:
             return mine_count
         else:
             return maxvalue
-
-    #TODO: timer here
-
-
